@@ -1,0 +1,10 @@
+<div class="main-content">
+  <div id="map_canvas">
+    <ui-gmap-google-map center="$ctrl.map.center" zoom="$ctrl.map.zoom" draggable="true" control='$ctrl.control' options="ctrl.options" bounds="$ctrl.map.bounds">
+      <ui-gmap-markers models="$ctrl.markers" coords="'self'" icon="'icon'">
+        <ui-gmap-windows show="show">
+          <div ng-non-bindable>{{title}}</div>
+        </ui-gmap-windows>
+      </ui-gmap-markers>
+    </div>
+  </div>

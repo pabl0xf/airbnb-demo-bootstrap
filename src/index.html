@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+  <head>
+    <base href="/">
+    <meta charset="utf-8">
+    <title>FountainJS</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" type="image/png" href="http://fountainjs.io/assets/imgs/fountain.png" />
+    <script src='//maps.googleapis.com/maps/api/js?key=AIzaSyB-rEjKbLHQLKxE89D3JPYsKpar2wrNUPE'></script>
+
+    <!-- build:css({.tmp,src}) styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- run `gulp inject` to automatically populate bower styles dependencies -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css({.tmp,src}) styles/app.css -->
+    <link rel="stylesheet" href="index.css"/>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="../bower_components/bootstrap-social/bootstrap-social.css"/>
+
+    <!-- endbuild -->
+  </head>
+
+
+  <body ng-app="app">
+    <ui-view></ui-view>
+  </body>
+
+  <!-- build:js({.tmp,src}) scripts/vendor.js -->
+  <!-- bower:js -->
+  <!-- run `gulp inject` to automatically populate bower script dependencies -->
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- build:js({.tmp,src}) scripts/app.js -->
+  <!-- inject:js -->
+  <!-- js files will be automatically insert here -->
+  <!-- endinject -->
+  <!-- inject:partials -->
+  <!-- angular templates will be automatically converted in js and inserted here -->
+  <!-- endinject -->
+  <!-- endbuild -->
+  <script src="../bower_components/angular-simple-logger/dist/angular-simple-logger.min.js"></script>
+  <script src="../bower_components/angular-facebook/lib/angular-facebook.js"></script>
+  <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="../bower_components/angular-google-maps/dist/angular-google-maps.min.js"></script>
+  <script src="../bower_components/lodash/dist/lodash.min.js"></script>
+  <script src="../bower_components/spin.js/spin.js"></script>
+  <script src="../bower_components/angular-spinner/angular-spinner.js"></script>
+
+</html>

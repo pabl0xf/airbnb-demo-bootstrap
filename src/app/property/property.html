@@ -1,0 +1,14 @@
+<div class="main-content">
+  <div class="row list-container">
+    <span spinner-key="spinner-1" spinner-start-active="true" us-spinner="{radius:30, width:8, length: 16, top:200}"></span>
+    <a ng-href="/dashboard/property/{{item.listing.id}}" ng-repeat="item in $ctrl.result.search_results">
+      <div class="col-xs-12 col-sm-6 col-md-4 item">
+        <div class="item-box">
+          <img ng-src="{{item.listing.picture_url}}">
+          <div class="price-container">{{item.pricing_quote.localized_nightly_price}}$</div>
+          <p>{{item.listing.name}}, {{item.listing.property_type}}</p>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>

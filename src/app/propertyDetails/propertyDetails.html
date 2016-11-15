@@ -1,0 +1,30 @@
+<div class="row property-details">
+  <div class="col-xs-12">
+    <div class="text-center">
+      <h4>{{$ctrl.property.listing.name}}</h4>
+      <h4>{{$ctrl.property.listing.public_address}}</h4>
+      <img ng-src="{{$ctrl.property.listing.x_medium_picture_url}}">
+      <p>
+        <a href="#" ng-click="$ctrl.addToFav()" ng-if="!$ctrl.isFavorite">Favorite</a>
+        <a href="#" ng-click="$ctrl.removeFav()" ng-if="$ctrl.isFavorite">UnFavorite</a>
+      </p>
+    </div>
+    <div class="col-xs-12 col-md-8">
+      <ul class="list-details">
+        <li>{{$ctrl.property.listing.description}}</li>
+        <li>Property Type: {{$ctrl.property.listing.property_type}}</li>
+        <li>Bed Type: {{$ctrl.property.listing.bed_type}}</li>
+        <li>Person capacity: {{$ctrl.property.listing.person_capacity}}</li>
+        <li>Bathrooms: {{$ctrl.property.listing.bathrooms}}</li>
+        <li>Bedrooms: {{$ctrl.property.listing.bedrooms}}</li>
+        <li>Beds: {{$ctrl.property.listing.beds}}</li>
+      </ul>
+    </div>
+    <div class="col-xs-12 col-md-4">
+        <ui-gmap-google-map center="$ctrl.map.center" control='$ctrl.control' zoom="$ctrl.map.zoom" draggable="true" options="$ctrl.options">
+            <ui-gmap-markers models="$ctrl.markers" coords="'self'" icon="'icon'">
+            </ui-gmap-marker>
+        </ui-gmap-google-map>
+      </div>
+  </div>
+</div>

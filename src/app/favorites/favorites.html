@@ -1,0 +1,14 @@
+<div class="main-content">
+  <div class="row list-container">
+    <a ng-href="/dashboard/property/{{item.listing.id}}" ng-repeat="item in $ctrl.properties">
+      <div class="col-xs-12 col-sm-6 col-md-4 item">
+        <div class="item-box">
+          <img ng-src="{{item.listing.picture_url}}">
+          <div class="price-container">{{item.pricing_quote.localized_nightly_price}}$</div>
+          <p>{{item.listing.name}}, {{item.listing.property_type}}</p>
+        </div>
+      </div>
+    </a>
+    <p class="text-center" ng-if="$ctrl.properties.length < 1">Your favorite list is empty.</p>
+  </div>
+</div>
