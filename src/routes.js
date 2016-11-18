@@ -16,7 +16,7 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
 
   .state('dashboard.property', {
     url: '/property',
-    component: 'property'
+    component: 'propertyController'
   })
 
   .state('dashboard.favorites', {
@@ -26,25 +26,24 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
 
   .state('dashboard.propertyDetails', {
     url: '/property/:id',
-    component: 'propertyDetails'
+    component: 'propertyDetailsController'
   })
 
   .state('dashboard.propertyMap', {
     url: '/property-map',
-    component: 'propertyMap'
+    component: 'propertyMapController'
   })
 
-  .state('login', {
-    url: '/login',
-    component: 'login'
-  })
+  .state('signIn', {
+    url: '/signIn',
+    component: 'signInController'
+  });
 
-  $urlRouterProvider.otherwise(function($injector, $location) {
-   if(sessionStorage.getItem('userIsLogged')) {
-     $location.path('/dashboard/property');
-   }
-   else{
-     $location.path('/login');
-   }
- });
+  $urlRouterProvider.otherwise(function ($injector, $location) {
+    if (sessionStorage.getItem('userIsLogged')) {
+      $location.path('/dashboard/property');
+    } else {
+      $location.path('/signIn');
+    }
+  });
 }

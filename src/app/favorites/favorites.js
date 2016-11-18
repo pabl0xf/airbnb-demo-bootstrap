@@ -2,8 +2,8 @@ angular
 .module('app')
 .component('favorites', {
   templateUrl: 'app/favorites/favorites.html',
-  controller: function (usSpinnerService) {
+  controller: function () {
     var ctrl = this;
-    ctrl.properties = JSON.parse(localStorage.getItem('propertiesStorage'));
+    ctrl.properties = angular.fromJson(localStorage.getItem('propertiesStorage'));
   }
 });
