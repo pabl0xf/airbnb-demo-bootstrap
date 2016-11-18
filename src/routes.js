@@ -21,7 +21,7 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
 
   .state('dashboard.favorites', {
     url: '/favorites',
-    component: 'favorites'
+    component: 'favoritesController'
   })
 
   .state('dashboard.propertyDetails', {

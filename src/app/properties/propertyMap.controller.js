@@ -7,29 +7,28 @@
     controller: propertyMapController
   });
   function propertyMapController(propertyService, uiGmapIsReady, $log) {
-    var ctrl = this;
+    var vm = this;
     var geoData = angular.fromJson(propertyService.getLocationCache());
-    var getPropertiesList = function () {
+    vm.readyForMap = true;
+    vm.control = {};
+    vm.markers = [];
+    vm.map = {center: {latitude: geoData.lat, longitude: geoData.lng}, zoom: 12, bounds: {}};
+    vm.options = {scrollwheel: false};
+
+    activate();
+
+    function activate() {
       propertyService.getPropertiesByLocation(geoData.location).then(function (result) {
-        ctrl.result = result;
+        vm.result = result;
         var markers = [];
-        angular.forEach(ctrl.result.search_results, function (value, key) {
-          markers.push(createMarker(key, ctrl.map.bounds, value));
+        angular.forEach(vm.result.search_results, function (value, key) {
+          markers.push(createMarker(key, vm.map.bounds, value));
         });
-        ctrl.markers = markers;
+        vm.markers = markers;
       }, function (err) {
         $log(err);
       });
-    };
-    getPropertiesList();
-
-    ctrl.readyForMap = true;
-    ctrl.control = {};
-    uiGmapIsReady.promise().then(function () {
-      ctrl.control.refresh();
-    });
-    ctrl.map = {center: {latitude: geoData.lat, longitude: geoData.lng}, zoom: 12, bounds: {}};
-    ctrl.options = {scrollwheel: false};
+    }
 
     var createMarker = function (i, bounds, place, idKey) {
       if (!idKey) {
@@ -48,7 +47,5 @@
       ret[idKey] = i;
       return ret;
     };
-
-    ctrl.markers = [];
   }
 })();

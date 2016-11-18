@@ -7,6 +7,16 @@
     controller: signInController
   });
   function signInController(Facebook, $state) {
+    var vm = this;
+    vm.login = login;
+
+    function login() {
+      Facebook.login(function (response) {
+        sessionStorage.setItem('userCredentials', response.authResponse);
+        getProfileInfo();
+      });
+      vm.errorMsge = 'login fail!';
+    }
     var getProfileInfo = function () {
       Facebook.api('/me', function (response) {
         var avatar = 'http://graph.facebook.com/' + response.id + '/picture';
@@ -18,12 +28,5 @@
         $state.go('dashboard.property');
       });
     };
-    this.login = function () {
-      Facebook.login(function (response) {
-        sessionStorage.setItem('userCredentials', response.authResponse);
-        getProfileInfo();
-      });
-      this.errorMsge = 'login fail!';
-    };
-  };
+  }
 })();
